@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>게시판</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-        <!--<link href="css/style.css" rel="stylesheet">-->
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <style>
-            .page {
-                display: flex;
-                justify-content: center;
-            }
-            .button {
-                margin-left:10px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>게시판</h1>
-        <div class="btn-group">
-            <a class="btn btn-default btn-warning btn-lg" href="/api/post/add">글쓰기</a>
-        </div>
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    </body>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=La Belle Aurore' rel='stylesheet'>
+    <title>Bloggggggg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+        .page {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            margin-left: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .btn {
+            margin: 2rem;
+        }
+
+        body {
+            padding: 3rem;
+        }
+
+        #header {
+            margin-top: 20rem;
+            margin-bottom: 15rem;
+            text-align: center;
+            font-family: 'Baloo';
+            font-size: 70px;
+        }
+
+        .boards {
+            margin: 6rem;
+            font-size: 25px; 
+        }
+
+        .title {
+            font-family: 'Baloo';
+            font-size: 50px;
+        }
+
+        .description {
+            font-family: 'Basic';
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <p>Bloggggggg</p>
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-default btn-warning btn-lg" href="/api/post/add">글쓰기</a>
+        <a class="btn btn-default btn-warning btn-lg" href="/api/post/add">Signin</a>
+        <a class="btn btn-default btn-warning btn-lg" href="/api/post/add">Signup</a>
+    </div>
+    <div class="boards">
+        <% for (var i = 0; i < boards.length; i++) { %>
+            <div class="title">
+                <a href='/api/post/detail/<%= boards[i]._id %>'>
+                    <%= boards[i].title %>
+                </a>
+            </div>
+            </br>
+            <% description = boards[i].description.slice(0, 300) %>
+                <div class="description">
+                    <%= description %>
+                </div>
+                    </br>
+                    <% } %>
+    </div>
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>

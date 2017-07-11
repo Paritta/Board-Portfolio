@@ -7,4 +7,18 @@ var Board = new Schema({
     createdAt: {type:Date, default:Date.now}
 });
 
+Board.statics.create = function(title, description) {
+    const board = new this({
+        title,
+        description
+    })
+    return board.save()
+}
+
+Board.statics.findOneByUsername = function(title) {
+    return this.findOne({
+        title
+    }).exec()
+}
+
 module.exports = mongoose.model('Board', Board);
