@@ -39,6 +39,11 @@ app.listen(port, () => {
     console.log(`Express is running on port ${port}`)
 })
 
+//===== 뷰 엔진 설정 =====//
+app.set('view engine', 'ejs');
+app.set('views', './views');
+console.log('뷰 엔진이 ejs로 설정되었습니다.');
+
 /* =======================
     CONNECT TO MONGODB SERVER
 ==========================*/
