@@ -30,15 +30,28 @@ exports.add = (req, res) => {
     res.render('add')
 }
 
+exports.delete = (req, res) => {
+    const id = req.params.id;
+    Board.findByIdAndRemove(id, (err, blogs) => {
+        if (err) {
+            res.send(err);
+        }
+        res.redirect('/api/post/index');
+    })
+}
+
 exports.write = (req, res) => {
-    const { title, description } = req.body
-    
+    const {
+        title,
+        description
+    } = req.body
+
     const create = (board) => {
-        if(board) { 
-            throw new Error('username exits') 
-        } else { 
+        if (board) {
+            throw new Error('username exits')
+        } else {
             res.redirect('/api/post/index');
-            return Board.create(title, description) 
+            return Board.create(title, description)
         }
     }
 
@@ -49,17 +62,6 @@ exports.write = (req, res) => {
     }
 
     Board.findOneByUsername(title)
-    .then(create)
-    .catch(onError)
-
-    // var title = req.body.title;
-    // var description = req.body.description;
-
-    // board.title = title;
-    // board.description = description;
-
-    // board.save((err) => {
-    //     if (err) console.log('duplicate!!!');
-    //     res.redirect('/api/post/index');
-    // })
+        .then(create)
+        .catch(onError)
 }
