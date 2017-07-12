@@ -26,7 +26,7 @@ app.use(morgan('dev'))
 
 // set the secret key variable for jwt
 app.set('jwt-secret', config.secret)
-
+// a
 // index page, just for testing
 app.get('/', (req, res) => {
     res.send('Hello JWT')
