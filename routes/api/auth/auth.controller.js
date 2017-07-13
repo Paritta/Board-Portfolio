@@ -29,7 +29,6 @@ exports.register = (req, res) => {
     }
 
     const respond = (isAdmin) => {
-        
         res.json({
             message: 'registered successfully',
             admin: isAdmin ? true : false
@@ -90,10 +89,13 @@ exports.login = (req, res) => {
 
     // respond the token 
     const respond = (token) => {
-        res.json({
-            message: 'logged in successfully',
-            token
-        })
+        console.log(user.username);
+        
+        res.redirect('/api/post/index');
+        // res.json({
+        //     message: 'logged in successfuly',
+        //     token
+        // })
     }
 
     // error occured
@@ -107,6 +109,7 @@ exports.login = (req, res) => {
     User.findOneByUsername(username)
     .then(check)
     .then(respond)
+    // .then(redirect)
     .catch(onError)
 }
 
@@ -117,6 +120,10 @@ exports.check = (req, res) => {
     })
 }
 
-exports.loginpage = (req, res) => {
+exports.signInPage = (req, res) => {
     res.render('signin')
+}
+
+exports.signUpPage = (req, res) => {
+    res.render('signup')
 }

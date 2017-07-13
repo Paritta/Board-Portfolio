@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
     <style>
         .page {
             display: flex;
@@ -45,7 +46,7 @@
 
         .boards {
             margin: 6rem;
-            font-size: 25px; 
+            font-size: 25px;
         }
 
         .title {
@@ -56,6 +57,12 @@
         .description {
             font-family: 'Basic';
             font-size: 30px;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-family: 'Alegreya';
+            font-size: 20px;
         }
 
     </style>
@@ -80,8 +87,11 @@
                 <div class="description">
                     <%= description %>
                 </div>
-                    </br>
-                    <% } %>
+                <footer>
+                    <span><%= boards[i].createdAt %></span>
+                </footer>
+                </br>
+                <% } %>
     </div>
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
