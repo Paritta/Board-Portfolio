@@ -1,12 +1,13 @@
 const Board = require('../../../models/board')
 const board = new Board();
-
+const conf = 'conf';
 
 exports.index = (req, res) => {
     Board.find((err, boards) => {
         if (err) {
             res.send(err)
         }
+        console.log(conf);
         res.render('index', {
             boards: boards
         });

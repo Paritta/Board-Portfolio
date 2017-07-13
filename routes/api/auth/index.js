@@ -4,6 +4,7 @@ const authMiddleware = require('../../../middlewares/auth')
 
 router.post('/register', controller.register)
 router.post('/login', controller.login)
+router.get('/logout', controller.logout)
 router.get('/check', authMiddleware)
 router.get('/check', controller.check)
 router.get('/signInPage', controller.signInPage)

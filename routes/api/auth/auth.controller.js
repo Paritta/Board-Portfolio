@@ -62,6 +62,16 @@ exports.login = (req, res) => {
         } else {
             // user exists, check the password
             if(user.verify(password)) {
+                // DB user, user.logger:true               
+                User.update({_id:user.id}, {$set: { logged: true }}, (err) => {
+                    if (err) throw err;        
+                })
+
+                // User.find({logged:true}, ()=>{
+                //     console.log('logged user detected');
+                // })
+                // User.find({logged:true}, {$set: {logged:false}})
+                
                 // create a promise that generates jwt asynchronously
                 const p = new Promise((resolve, reject) => {
                     jwt.sign(
@@ -89,7 +99,6 @@ exports.login = (req, res) => {
 
     // respond the token 
     const respond = (token) => {
-        console.log(user.username);
         
         res.redirect('/api/post/index');
         // res.json({
@@ -109,7 +118,6 @@ exports.login = (req, res) => {
     User.findOneByUsername(username)
     .then(check)
     .then(respond)
-    // .then(redirect)
     .catch(onError)
 }
 
@@ -126,4 +134,15 @@ exports.signInPage = (req, res) => {
 
 exports.signUpPage = (req, res) => {
     res.render('signup')
+}
+
+exports.logout = (req, res) => {
+    User.update({logged: true}, {$set: { logged: false }}, (err) => {
+                if (err) throw err;        
+            })
+    // User.where({ logged: false }).update({$set:{
+    //     logged: true
+    // }}
+    // )
+
 }
