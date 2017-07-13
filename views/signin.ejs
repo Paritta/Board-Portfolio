@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 부가적인 폰트 -->
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <style>
+        .header {
+            font-family: 'Calligraffitti';
+            font-size: 50px;
+            text-align: center;
+            padding: 12rem;
+        }
+        .input-group {
+            margin-top: 3rem;
+        }
+        .btn {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span>Sign in</span>
+        </div>
+        <form action="/api/auth/login" method="POST" role="role" class="form-horizontal">
+            <div class="input-container">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon"></div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Password">
+                </div>
+                <button type="button" class="btn btn-info btn-block">Sign in</button>
+            </div>
+            <button type="button" class="btn btn-info btn-block">Sign up</button>
+        <form/>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

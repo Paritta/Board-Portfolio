@@ -49,6 +49,7 @@ exports.register = (req, res) => {
     .then(respond)
     .catch(onError)
 }
+
 exports.login = (req, res) => {
     const {username, password} = req.body
     const secret = req.app.get('jwt-secret')
@@ -114,4 +115,8 @@ exports.check = (req, res) => {
         success: true,
         info: req.decoded
     })
+}
+
+exports.loginpage = (req, res) => {
+    res.render('signin')
 }

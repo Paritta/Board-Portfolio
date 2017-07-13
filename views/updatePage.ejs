@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Add new post</title>
+    <title>Update Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <style>
@@ -22,6 +23,12 @@
             font-family: 'Calligraffitti';
             font-size: 70px;
         }
+
+        .orgin {
+            font-family: 'Basic';
+            font-size: 30px;
+            margin-bottom: 2rem;
+        }
     </style>
 
 </head>
@@ -29,11 +36,15 @@
 <body>
     <div class="header">
         <span>
-            Add new post
+            Update Post
         </span>
     </div>
     <div class="container">
-        <form action="/api/post/write" method="POST" role="role" class="form-horizontal">
+        <div class="orgin">
+            <span><%= title%></span></br>
+            <span><%= description%></span>
+        </div>
+        <form action="/api/post/update/<%=id %>" method="GET" role="role" class="form-horizontal">
             <div class="form-group">
                 <input type="text" class="form-control" id="inputEmail3" name='title' placeholder="title">
             </div>
