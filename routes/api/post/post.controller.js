@@ -5,14 +5,16 @@ localStorage = new LocalStorage('./scratch')
 
 exports.index = (req, res) => {
     
-    console.log(req.decoded);
+    // console.log(req.decoded.username);
+    const username = req.decoded.username;
     
     Board.find((err, boards) => {
         if (err) {
             res.send(err)
         }
         res.render('index', {
-            boards: boards
+            boards: boards,
+            username: username
         });
     })
 }
@@ -39,7 +41,7 @@ exports.delete = (req, res) => {
         if (err) {
             res.send(err);
         }
-        res.redirect('/api/post/index');
+        res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
     })
 }
 
@@ -49,7 +51,7 @@ exports.update = (req, res) => {
 
     Board.update({_id:id}, {$set: { title: title, description: description }}, (err) => {
         if (err) throw err;        
-        res.redirect('/api/post/index');
+        res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
     })
 }
 
@@ -83,7 +85,7 @@ exports.write = (req, res) => {
         if (board) {
             throw new Error('username exits')
         } else {
-            res.redirect('/api/post/index');
+            res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
             return Board.create(title, description)
         }
     }

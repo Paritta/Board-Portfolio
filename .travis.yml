@@ -10,3 +10,7 @@ branches:
 matrix:
   allow_failures:
     - node_js: 0.7
+addons:
+  apt:
+    packages:
+      - libssl1.0.0

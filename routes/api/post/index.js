@@ -10,7 +10,6 @@ localStorage = new LocalStorage('./scratch')
 
 router.get(`/index`, authMiddleware)
 router.get(`/index`, controller.index)
-// router.get('/index', controller.index)
 router.get('/add', controller.add)
 router.get('/detail/:id', controller.detail)
 router.get('/delete/:id', controller.delete)

@@ -34,6 +34,12 @@
 
         body {
             padding: 3rem;
+            /* border: 7px dotted teal; */
+        }
+
+        .container {
+            /* border: 7px dotted thistle; */
+            width: 85%;
         }
 
         #header {
@@ -50,6 +56,7 @@
         }
 
         .title {
+            color:rgb(38%, 68.1%, 99.5%);
             font-family: 'Calligraffitti';
             font-size: 50px;
         }
@@ -60,39 +67,63 @@
         }
 
         footer {
-            margin-top: 3rem;
+            /* margin-top: 1rem; */
             font-family: 'Alegreya';
-            font-size: 20px;
+            font-size: 15px;
+            color:rgb(53.7%, 61.6%, 69.8%);
+        }
+        
+        .link {
+            font-family: 'Calligraffitti';
+            font-size: 25px;
+            margin-top: 2rem;
+            margin-right: 4rem;
+            text-align: right;
+        }
+
+        .username {
+            font-family: 'Calligraffitti';
+            font-size: 25px;
+            margin-right: 4rem;
+            text-align: right;
         }
 
     </style>
 </head>
 
 <body>
-    <div id="header">
-        <p>Bloggggggg</p>
-    </div>
-    <div class="btn-group">
-        <a class="btn btn-default btn-info btn-lg" href="/api/post/add">글쓰기</a>
-        <a class="btn btn-default btn-primary btn-lg" href="/api/auth/logout">Log out</a>
-    </div>
-    <div class="boards">
-        <% for (var i = 0; i < boards.length; i++) { %>
-            <div class="title">
-                <a href='/api/post/detail/<%= boards[i]._id %>'>
+    <div class="container">
+        <div class="username">
+            <span>Welcome, <%= username %></span>
+        </div>
+        <div id="header">
+            <p>Bloggggggg</p>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-default btn-info btn-lg" href="/api/post/add">글쓰기</a>
+        </div>
+        <div class="boards">
+            <% for (var i = 0; i < boards.length; i++) { %>
+                <div class="title">
                     <%= boards[i].title %>
-                </a>
-            </div>
-            </br>
-            <% description = boards[i].description.slice(0, 300) %>
-                <div class="description">
-                    <%= description %>
                 </div>
-                <footer>
-                    <span><%= boards[i].createdAt %></span>
-                </footer>
                 </br>
-                <% } %>
+                <% description = boards[i].description.slice(0, 300) %>
+                    <div class="description">
+                        <%= description %>
+                    </div>
+                    <div class="link">  
+                        <a href='/api/post/detail/<%= boards[i]._id %>'>
+                            Read More
+                        </a>
+                    </div>
+                    <footer>
+                        <span>CreatedAt: <%= boards[i].createdAt %></span></br>
+                        <span>Author: <%= username%></span>
+                    </footer>
+                    </br>
+                    <% } %>
+        </div>
     </div>
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">

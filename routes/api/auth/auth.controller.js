@@ -103,11 +103,11 @@ exports.login = (req, res) => {
     const respond = (token) => {
         localStorage.setItem('token', token);
         console.log(localStorage.getItem('token'));
-            
-        res.json({
-            message: 'logged in successfuly',
-            token
-        })
+        res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
+        // res.json({
+        //     message: 'logged in successfuly',
+        //     token
+        // })
     }
 
     // error occured
