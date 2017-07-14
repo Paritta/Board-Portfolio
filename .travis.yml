@@ -1,7 +1,8 @@
 # .travis.yml 
 language: node_js
 node_js:
-  - 0.7
+  - "iojs"
+  - "7"
 before_install:
   - npm install mocha -g
 branches:
