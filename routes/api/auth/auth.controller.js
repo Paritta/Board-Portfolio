@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 const User = require('../../../models/user')
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch')
 
 exports.register = (req, res) => {
     const { username, password } = req.body
@@ -99,12 +101,13 @@ exports.login = (req, res) => {
 
     // respond the token 
     const respond = (token) => {
-        
-        res.redirect('/api/post/index');
-        // res.json({
-        //     message: 'logged in successfuly',
-        //     token
-        // })
+        localStorage.setItem('token', token);
+        console.log(localStorage.getItem('token'));
+            
+        res.json({
+            message: 'logged in successfuly',
+            token
+        })
     }
 
     // error occured

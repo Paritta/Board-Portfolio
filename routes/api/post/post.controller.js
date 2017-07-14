@@ -1,13 +1,16 @@
 const Board = require('../../../models/board')
 const board = new Board();
-const conf = 'conf';
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch')
 
 exports.index = (req, res) => {
+    
+    console.log(req.decoded);
+    
     Board.find((err, boards) => {
         if (err) {
             res.send(err)
         }
-        console.log(conf);
         res.render('index', {
             boards: boards
         });

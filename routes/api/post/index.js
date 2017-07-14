@@ -1,7 +1,16 @@
 const router = require('express').Router()
 const controller = require('./post.controller')
+const authMiddleware = require('../../../middlewares/auth')
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch')
 
-router.get('/index', controller.index)
+// let token = localStorage.getItem('token')
+// console.log(token);
+
+
+router.get(`/index`, authMiddleware)
+router.get(`/index`, controller.index)
+// router.get('/index', controller.index)
 router.get('/add', controller.add)
 router.get('/detail/:id', controller.detail)
 router.get('/delete/:id', controller.delete)
