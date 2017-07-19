@@ -1,7 +1,7 @@
 Blog
 ========
 
->Node.js/MongoD를 이용한 CRUD 블로그
+>Node.js/MongoDB를 이용한 CRUD 블로그
  
 Demo
 ===
