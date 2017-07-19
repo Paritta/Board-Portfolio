@@ -28,7 +28,7 @@ Demo
 
 <img src='./img/Demo7.PNG'>
 
->토큰과 로그인 id 확인
+> jwt 토큰과 로그인 id 확인
 
 Motivation
 ===
@@ -39,7 +39,7 @@ Motivation
 Main Technology Stack
 ===
 * Node.js
-* moongoose
+* mongoose
 * jwt
 * ejs
 * RESTfulAPI
@@ -56,9 +56,8 @@ Feature
 ---
 Source Code
 ===
-```
-https://github.com/tjdgns8047/Board-Portfolio
-```
+> [https://github.com/tjdgns8047/Board-Portfolio](https://github.com/tjdgns8047/Board-Portfolio)
+
 
 Depolyment
 ===
