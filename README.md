@@ -47,6 +47,7 @@ Main Technology Stack
 * ejs
 * RESTfulAPI
 * express
+* bootstrap
 
 Feature
 ===
@@ -70,6 +71,10 @@ Installation
 ```
 $ git clone https://github.com/tjdgns8047/Board-Portfolio.git
 ```
+2. Change folder
+```
+$ cd Board-Portfolio
+```
 2. Set up
 ```
 $ yarn
@@ -80,7 +85,7 @@ $ mongod
 ```
 3. execute
 ```
-$ yarn start
+$ node app.js
 ```
 
 

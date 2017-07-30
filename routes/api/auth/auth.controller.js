@@ -10,7 +10,6 @@ exports.register = (req, res) => {
 
     const create = (user) => {
         if(user) { 
-            console.log('log');
             throw new Error('username exits') 
         } else { 
             return User.create(username, password) 
