@@ -101,6 +101,8 @@ exports.login = (req, res) => {
 
     // respond the token 
     const respond = (token) => {
+        console.log('confirm');
+        
         localStorage.setItem('token', token);
         console.log(localStorage.getItem('token'));
         res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
