@@ -4,9 +4,9 @@ var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch')
 
 exports.index = (req, res) => {
-    
-    // console.log(req.decoded.username);
+
     const username = req.decoded.username;
+    localStorage.setItem('username', username);
     
     Board.find((err, boards) => {
         if (err) {
@@ -81,12 +81,14 @@ exports.write = (req, res) => {
         description
     } = req.body
 
+    const username = localStorage.getItem('username');
+    
     const create = (board) => {
         if (board) {
             throw new Error('username exits')
         } else {
             res.redirect(`/api/post/index?token=${localStorage.getItem('token')}`);
-            return Board.create(title, description)
+            return Board.create(title, description, username)
         }
     }
 

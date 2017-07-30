@@ -69,11 +69,6 @@ exports.login = (req, res) => {
                     if (err) throw err;        
                 })
 
-                // User.find({logged:true}, ()=>{
-                //     console.log('logged user detected');
-                // })
-                // User.find({logged:true}, {$set: {logged:false}})
-                
                 // create a promise that generates jwt asynchronously
                 const p = new Promise((resolve, reject) => {
                     jwt.sign(
@@ -85,7 +80,7 @@ exports.login = (req, res) => {
                         secret, 
                         {
                             expiresIn: '7d',
-                            issuer: 'velopert.com',
+                            issuer: 'tjdgns8047',
                             subject: 'userInfo'
                         }, (err, token) => {
                             if (err) reject(err)
@@ -145,9 +140,4 @@ exports.logout = (req, res) => {
     User.update({logged: true}, {$set: { logged: false }}, (err) => {
                 if (err) throw err;        
             })
-    // User.where({ logged: false }).update({$set:{
-    //     logged: true
-    // }}
-    // )
-
 }
