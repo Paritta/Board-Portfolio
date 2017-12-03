@@ -62,11 +62,8 @@ Source Code
 ===
 > [https://github.com/tjdgns8047/Board-Portfolio](https://github.com/tjdgns8047/Board-Portfolio)
 
-
-Depolyment
-===
 Installation
----
+===
 1. Dowload
 ```
 $ git clone https://github.com/tjdgns8047/Board-Portfolio.git
